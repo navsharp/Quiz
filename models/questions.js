@@ -1,6 +1,5 @@
 'use strict';
 const mongoose = require('mongoose');
-// var autoIncrement = require('mongoose-auto-increment');
 
 const QuestionSchema = new mongoose.Schema({
 	Question:{
@@ -32,6 +31,4 @@ const QuestionSchema = new mongoose.Schema({
 		type: Number
 	}
 });
-// autoIncrement.initialize(mongoose.connection);
-// QuestionSchema.plugin(autoIncrement.plugin, {model: 'Questions',field: 'Serial'});
 module.exports = mongoose.model('Questions', QuestionSchema);
