@@ -77,14 +77,10 @@ router.get('/next',(req,res)=>{
 	}
 	Questions.find({})
 	.estimatedDocumentCount()
-	.then((count,err)=>{
-		if(err){
-			res.json(err).status(404);
-		} else {
-			//console.log(count);
+	.then( count =>{
 			return count;
 		}
-	})
+	)
 	.then(count=>{
 		let random = Math.floor((Math.random() * count));
 		while(random === serial){
@@ -93,7 +89,7 @@ router.get('/next',(req,res)=>{
 		return random;
 	})
 	.then((val)=>{
-			console.log(val,"<><><><>")
+			// console.log(val,"<><><><>")
 			Questions.find({Serial:val})
 			.then(
 				que=>{
